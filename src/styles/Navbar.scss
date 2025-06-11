@@ -1,0 +1,35 @@
+.custom-navbar {
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  .navbar-brand {
+    font-weight: bold;
+     font-size: 1.5rem;
+  }
+  
+  .nav-link {
+    font-weight: 500;
+  
+    &:hover {
+      color: #fff !important; // Bootstrap warning color
+    }
+  } 
+  .dropdown-menu {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: #343a40;
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .dropdown-item {
+      color: #fff;
+      &:hover {
+          background-color: #495057;
+      }
+  }
+ 
+}
+  

@@ -1,0 +1,19 @@
+.recent-posts {
+    h2 {
+      font-weight: bold;
+    }
+  
+    .card {
+      border: none;
+      transition: transform 0.2s ease-in-out;
+  
+      &:hover {
+        transform: translateY(-5px);
+      }
+  
+      .btn {
+        font-size: 0.9rem;
+      }
+    }
+  }
+  

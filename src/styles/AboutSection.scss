@@ -1,0 +1,26 @@
+.about-section {
+    background: #f8f9fa;
+    
+    
+    h2 {
+      font-weight: 700;
+      color: #343a40;
+    }
+  
+    p {
+      color: #555;
+    }
+  
+    img {
+      max-height: 300px;
+      object-fit: cover;
+    }
+  
+    button {
+      transition: all 0.3s ease;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+  

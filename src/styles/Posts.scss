@@ -1,0 +1,27 @@
+.posts-page {
+    .card {
+      transition: transform 0.2s ease;
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+  
+    .card-meta {
+      font-size: 0.85rem;
+      color: #6c757d;
+      margin-bottom: 10px;
+    }
+
+    .category-buttons .btn.active {
+      background-color: #343a40;
+      color: #fff;
+      border-color: #343a40;
+    }
+
+}
+  
