@@ -40,7 +40,7 @@ export default function CreatePost() {
         setMessage("");
         setLoading(true);
         try {
-            const res = await api.post("/posts", formData, {
+            await api.post("/posts", formData, {
                 withCredentials: true,
             });
             setMessage("Post created successfully!");

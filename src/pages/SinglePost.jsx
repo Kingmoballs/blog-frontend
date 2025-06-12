@@ -11,28 +11,29 @@ export default function SinglePost() {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
+        const fetchPost = async () => {
+            try {
+                const res = await api.get(`/posts/${id}`);
+                setPost(res.data);
+            } catch (err) {
+                console.error("Error fetching post:", err);
+                setError("Post not found or error loading post.");
+            }
+        };
+
+        const fetchCurrentUser = async () => {
+            try {
+                const res = await api.get("/auth/me");
+                setUser(res.data);
+            } catch (err) {
+                console.warn("User not logged in");
+            }
+        };
+
         fetchPost();
         fetchCurrentUser();
     }, []);
 
-    const fetchPost = async () => {
-        try {
-            const res = await api.get(`/posts/${id}`);
-            setPost(res.data);
-        } catch (err) {
-            console.error("Error fetching post:", err);
-            setError("Post not found or error loading post.");
-        }
-    };
-
-    const fetchCurrentUser = async () => {
-        try {
-            const res = await api.get("/auth/me");
-            setUser(res.data);
-        } catch (err) {
-            console.warn("User not logged in");
-        }
-    };
 
     const handleDelete = async () => {
         if (window.confirm("Are you sure you want to delete this post?")) {

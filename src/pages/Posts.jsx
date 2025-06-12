@@ -25,30 +25,27 @@ export default function Posts() {
     const selectedCategory = searchParams.get("category") || "All";
 
     useEffect(() => {
+        const fetchPosts = async () => {
+            try {
+                const res = await api.get("/posts");
+                setPosts(res.data || []);
+            } catch (err) {
+                console.error("Failed to fetch posts:", err);
+                setPosts([]);
+            }
+        };
+
         fetchPosts();
     }, []);
 
     useEffect(() => {
-        filterPostsByCategory(selectedCategory);
-    }, [selectedCategory, posts]);
-
-    const fetchPosts = async () => {
-        try {
-            const res = await api.get("/posts");
-            setPosts(res.data || []);
-        } catch (err) {
-            console.error("Failed to fetch posts:", err);
-            setPosts([]);
-        }
-    };
-
-    const filterPostsByCategory = (category) => {
-        if (category === "All") {
+        if (selectedCategory === "All") {
             setFilteredPosts(posts);
         } else {
-            setFilteredPosts(posts.filter(post => post.category === category));
+            setFilteredPosts(posts.filter(post => post.category === selectedCategory));
         }
-    };
+    }, [selectedCategory, posts]);
+
 
     const handleCategoryClick = (category) => {
         if (category === "All") {

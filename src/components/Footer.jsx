@@ -24,9 +24,9 @@ export default function Footer() {
                     <div className="col-md-3">
                         <h6>Follow Us</h6>
                         <div className="social-icons">
-                        <a href="#" className="footer-icon"><i className="fab fa-twitter"></i></a>
-                        <a href="#" className="footer-icon"><i className="fab fa-github"></i></a>
-                        <a href="#" className="footer-icon"><i className="fab fa-linkedin"></i></a>
+                        <a href="https://www.twitter.com" className="footer-icon"><i className="fab fa-twitter"></i></a>
+                        <a href="https://github.com/Kingmoballs" className="footer-icon"><i className="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/samuel-mobolaji/" className="footer-icon"><i className="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>

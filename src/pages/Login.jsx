@@ -21,7 +21,7 @@ export default function Login() {
         setLoading(true);
         
         try{
-            const res = await api.post("/auth/login", formData, { withCredentials: true });
+            await api.post("/auth/login", formData, { withCredentials: true });
             setMessage("Login Successful");
             setFormData({ email: "", password: "" })
             

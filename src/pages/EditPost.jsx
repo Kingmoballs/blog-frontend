@@ -18,24 +18,25 @@ export default function EditPost() {
     const [error, setError] = useState("");
 
     useEffect(() => {
+        const fetchPost = async () => {
+            try {
+                const res = await api.get(`/posts/${id}`);
+                setPost({
+                    title: res.data.title,
+                    content: res.data.content,
+                    category: res.data.category
+                });
+            } catch (err) {
+                console.error("Failed to fetch post", err);
+                setError("Failed to load post or unauthorized access.");
+            } finally {
+                setLoading(false);
+            }
+        };
+
         fetchPost();
     }, []);
 
-    const fetchPost = async () => {
-        try {
-            const res = await api.get(`/posts/${id}`);
-            setPost({
-                title: res.data.title,
-                content: res.data.content,
-                category: res.data.category
-            });
-        } catch (err) {
-            console.error("Failed to fetch post", err);
-            setError("Failed to load post or unauthorized access.");
-        } finally {
-            setLoading(false);
-        }
-    };
 
     const handleChange = (e) => {
         setPost({ ...post, [e.target.name]: e.target.value });
