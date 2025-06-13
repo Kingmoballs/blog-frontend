@@ -35,7 +35,7 @@ export default function EditPost() {
         };
 
         fetchPost();
-    }, []);
+    }, [id]);
 
 
     const handleChange = (e) => {

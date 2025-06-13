@@ -32,7 +32,7 @@ export default function SinglePost() {
 
         fetchPost();
         fetchCurrentUser();
-    }, []);
+    }, [id]);
 
 
     const handleDelete = async () => {
