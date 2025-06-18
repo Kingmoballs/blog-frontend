@@ -7,7 +7,8 @@ import Home from "./pages/Home";
 import Posts from "./pages/Posts";
 import SinglePost from "./pages/SinglePost";
 import CreatePost from "./pages/CreatePost";
-import EditPost from "./pages/EditPost"
+import EditPost from "./pages/EditPost";
+import Profile from "./pages/Profile"
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -32,6 +33,7 @@ function App() {
         <Route path="/register" element={ <Register /> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/posts" element={ <Posts /> } />
+        <Route path="/profile" element={ <Profile /> } />
         <Route path="/posts/:id" element={ <SinglePost /> } />
         <Route path="/create" element={ <CreatePost /> } />
         <Route path="/edit/:id" element={ <EditPost /> } />
