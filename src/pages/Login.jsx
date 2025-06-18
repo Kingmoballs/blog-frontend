@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
+import { useAuth } from "../contexts/AuthContext";
 import api from "../services/api"
 import "../styles/Login.scss"
 
 export default function Login() {
     const navigate = useNavigate();
+    const { fetchUser } = useAuth();
 
     const [formData, setFormData] = useState({email: "", password: ""});
     const [message, setMessage] = useState("");
@@ -22,6 +24,10 @@ export default function Login() {
         
         try{
             await api.post("/auth/login", formData, { withCredentials: true });
+
+            // Fetch and update user info globally
+            await fetchUser();
+            
             setMessage("Login Successful");
             setFormData({ email: "", password: "" })
             

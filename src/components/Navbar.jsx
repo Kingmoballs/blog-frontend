@@ -1,31 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
+import { useAuth } from "../contexts/AuthContext";
 import api from "../services/api";
 import "../styles/Navbar.scss";
 
 export default function Navbar() {
     const navigate = useNavigate();
-    const [user, setUser] = useState(null);
+    const { user, setUser, fetchUser } = useAuth();
     const [showDropdown, setShowDropdown] = useState(false);
 
     useEffect(() => {
-        fetchCurrentUser();
+        fetchUser();
     }, []);
 
-    const fetchCurrentUser = async () => {
-        try {
-            const res = await api.get("/auth/me", { withCredentials: true });
-            setUser(res.data);
-        } catch (error) {
-            setUser(null);
-        }
-    };
 
     const handleLogout = async () => {
         try {
             await api.post("/auth/logout", {}, { withCredentials: true });
-            localStorage.removeItem("user");
             setUser(null);
             navigate("/login");
         } catch (error) {

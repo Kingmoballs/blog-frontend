@@ -58,7 +58,7 @@ export default function ProfileSettingsPage() {
                             <p className="text-muted">You haven't written any posts yet.</p>
                         ) : (
                             <ul className="list-group list-group-flush">
-                                {userPosts.map(post => (
+                                {userPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((post) => (
                                     <li key={post._id} className="list-group-item list-group-item-action">
                                         <Link
                                             to={`/posts/${post._id}`}

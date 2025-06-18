@@ -74,7 +74,9 @@ export default function Posts() {
 
             <div className="row">
                 {filteredPosts.length > 0 ? (
-                    filteredPosts.map((post) => (
+                    [...filteredPosts]
+                    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                    .map((post) => (
                         <div
                             key={post._id}
                             className="col-md-6 col-lg-4 mb-4"
